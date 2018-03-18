@@ -26,5 +26,6 @@ RUN echo "date.timezone = Europe/London" >> $PHP_INI_DIR/php.ini \
 && echo "variables_order = GPCS" >> $PHP_INI_DIR/php.ini
 
 RUN echo "<FilesMatch \\.wsdl$>\n\tSetHandler application/x-httpd-php\n</FilesMatch>" >> /etc/apache2/apache2.conf
+RUN echo "IncludeOptional sites-enabled/*.conf" >> /etc/apache2/apache2.conf
 
 CMD [ "apache2-foreground" ]
