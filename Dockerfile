@@ -5,7 +5,6 @@ git \
 vim \
 zip \
 less \
-libsqlite3-dev \
 ruby1.9.1-dev \
 && apt-get -y autoremove \
 && apt-get clean \
