@@ -5,7 +5,7 @@ git \
 vim \
 zip \
 less \
-ruby1.9.1-dev \
+ruby-full \
 && apt-get -y autoremove \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
