@@ -5,6 +5,7 @@ git \
 vim \
 zip \
 less \
+libsqlite3-dev \
 ruby-full \
 && apt-get -y autoremove \
 && apt-get clean \
