@@ -7,7 +7,6 @@ zip \
 less \
 libsqlite3-dev \
 ruby-full \
-lsof \
 netstat \
 && apt-get -y autoremove \
 && apt-get clean \
