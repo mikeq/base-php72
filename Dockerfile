@@ -5,6 +5,8 @@ git \
 vim \
 zip \
 less \
+libsqlite3-dev \
+ruby1.9.1-dev \
 && apt-get -y autoremove \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
@@ -16,6 +18,8 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
 && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --snapshot \
 && rm -f /tmp/composer-setup.*
 
+RUN gem install mailcatcher
+
 RUN echo "date.timezone = Europe/London" >> $PHP_INI_DIR/php.ini \
 && echo "include_path = .:/scope/includes" >> $PHP_INI_DIR/php.ini \
 && echo "error_reporting = 30711" >> $PHP_INI_DIR/php.ini \
@@ -23,7 +27,8 @@ RUN echo "date.timezone = Europe/London" >> $PHP_INI_DIR/php.ini \
 && echo "memory_limit = 512M" >> $PHP_INI_DIR/php.ini \
 && echo "register_globals = On" >> $PHP_INI_DIR/php.ini \
 && echo "serialize_precision = 100" >> $PHP_INI_DIR/php.ini \
-&& echo "variables_order = GPCS" >> $PHP_INI_DIR/php.ini
+&& echo "variables_order = GPCS" >> $PHP_INI_DIR/php.ini \
+&& echo "sendmail_path = /usr/bin/env $(which catchmail) -f scope@local.dev" >> $PHP_INI_DIR/php.ini
 
 RUN echo "<FilesMatch \\.wsdl$>\n\tSetHandler application/x-httpd-php\n</FilesMatch>" >> /etc/apache2/apache2.conf
 RUN echo "IncludeOptional sites-enabled/*.conf" >> /etc/apache2/apache2.conf
