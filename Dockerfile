@@ -19,6 +19,7 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
 && rm -f /tmp/composer-setup.*
 
 RUN gem install mailcatcher
+COPY config/mailcatcher.conf /etc/init/.
 
 RUN echo "date.timezone = Europe/London" >> $PHP_INI_DIR/php.ini \
 && echo "include_path = .:/scope/includes" >> $PHP_INI_DIR/php.ini \
