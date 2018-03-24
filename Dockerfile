@@ -26,6 +26,7 @@ RUN echo "date.timezone = Europe/London" >> $PHP_INI_DIR/php.ini \
 && echo "include_path = .:/scope/includes" >> $PHP_INI_DIR/php.ini \
 && echo "error_reporting = 30711" >> $PHP_INI_DIR/php.ini \
 && echo "log_errors = On" >> $PHP_INI_DIR/php.ini \
+&& echo "display_errors = Off" >> $PHP_INI_DIR/php.ini \
 && echo "memory_limit = 512M" >> $PHP_INI_DIR/php.ini \
 && echo "register_globals = On" >> $PHP_INI_DIR/php.ini \
 && echo "serialize_precision = 100" >> $PHP_INI_DIR/php.ini \
