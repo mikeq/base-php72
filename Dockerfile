@@ -11,16 +11,11 @@ net-tools \
 openssh-client \
 libfreetype6-dev \
 libjpeg62-turbo-dev \
-libmcrypt-dev \
 libpng-dev \
-&& docker-php-ext-install -j$(nproc) iconv mcrypt \
-&& docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-&& docker-php-ext-install -j$(nproc) gd \
+&& docker-php-ext-install -j$(nproc) gd mysqli pdo_mysql soap \
 && apt-get -y autoremove \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
-
-
 
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
 && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
