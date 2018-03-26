@@ -12,6 +12,7 @@ openssh-client \
 libfreetype6-dev \
 libjpeg62-turbo-dev \
 libpng-dev \
+libxml2 \
 && docker-php-ext-install -j$(nproc) gd mysqli pdo_mysql soap \
 && apt-get -y autoremove \
 && apt-get clean \
