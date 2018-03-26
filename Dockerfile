@@ -1,4 +1,4 @@
-FROM orsolin/docker-php-5.3-apache
+FROM php:7.2-apache-stretch
 RUN apt-get update && apt-get install -y --no-install-recommends \
 mysql-client \
 git \
@@ -28,9 +28,6 @@ RUN echo "date.timezone = Europe/London" >> $PHP_INI_DIR/php.ini \
 && echo "log_errors = On" >> $PHP_INI_DIR/php.ini \
 && echo "display_errors = Off" >> $PHP_INI_DIR/php.ini \
 && echo "memory_limit = 512M" >> $PHP_INI_DIR/php.ini \
-&& echo "register_globals = On" >> $PHP_INI_DIR/php.ini \
-&& echo "serialize_precision = 100" >> $PHP_INI_DIR/php.ini \
-&& echo "variables_order = GPCS" >> $PHP_INI_DIR/php.ini \
 && echo "sendmail_path = /usr/bin/env $(which catchmail) -f scope@local.dev" >> $PHP_INI_DIR/php.ini
 
 RUN echo "<FilesMatch \\.wsdl$>\n\tSetHandler application/x-httpd-php\n</FilesMatch>" >> /etc/apache2/apache2.conf
