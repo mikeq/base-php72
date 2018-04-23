@@ -6,6 +6,7 @@ vim \
 zip \
 less \
 libsqlite3-dev \
+libdate-calc-perl \
 ruby-full \
 net-tools \
 openssh-client \
