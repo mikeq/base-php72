@@ -7,6 +7,8 @@ zip \
 less \
 libsqlite3-dev \
 libdate-calc-perl \
+libclass-dbi-perl \
+libclass-dbi-mysql-perl \
 ruby-full \
 net-tools \
 openssh-client \
