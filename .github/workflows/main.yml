@@ -1,0 +1,22 @@
+name: Docker Push
+
+on: push
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Build and Push mikeq/base-php72
+        uses: mr-smithers-excellent/docker-build-push@v3
+        with:
+          image: mikeq/base-php72
+          tag: latest
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}

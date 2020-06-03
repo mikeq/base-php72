@@ -4,6 +4,7 @@ mysql-client \
 git \
 vim \
 zip \
+unzip \
 less \
 libsqlite3-dev \
 libdate-calc-perl \
